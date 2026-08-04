@@ -58,7 +58,7 @@ class ImportArchivedFilesService
             // 🔔 Envoyer la notification UNIQUEMENT si de nouveaux fichiers OTPLANIFVTDATE ont été importés
             if ($this->newFilesCount > 0) {
                 // On reconstruit la liste des fichiers à partir de $this->processedFiles
-                $this->sendNotificationIfNeeded('OTPLANIFVTDATE');
+              //  $this->sendNotificationIfNeeded('OTPLANIFVTDATE');
             } else {
                 Log::info('Aucun nouveau fichier OTPLANIFVTDATE à notifier.');
             }

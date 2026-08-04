@@ -43,7 +43,7 @@ class OtplanifraccodateImportService
             DB::commit();
 
             // 🔔 Envoyer la notification après le commit réussi
-            $this->sendNotificationIfNeeded('OTPLANIFRACCODATE');
+           // $this->sendNotificationIfNeeded('OTPLANIFRACCODATE');
 
             Log::info('Import OTPLANIFRACCODATE terminé', [
                 'imported' => $this->importedCount,

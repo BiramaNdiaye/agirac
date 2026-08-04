@@ -59,7 +59,7 @@ class ImportRaccordementArchivesService
 
             // 🔔 Envoyer la notification uniquement si de nouveaux fichiers OTPLANIFRACCODATE ont été traités
             if ($this->newFilesCount > 0) {
-                $this->sendNotificationIfNeeded('OTPLANIFRACCODATE');
+               // $this->sendNotificationIfNeeded('OTPLANIFRACCODATE');
             } else {
                 Log::info('Aucun nouveau fichier OTPLANIFRACCODATE à notifier');
             }

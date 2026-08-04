@@ -519,12 +519,12 @@ export default function DepotActionRaccordementComplet({ order, initialAction, o
       if (activeAction === ACTION_TYPES.LIVRAISON_DFT) {
         if (supplyFile1) {
           const ext1 = supplyFile1.name.split('.').pop();
-          const newName1 = `DFT_GCB1_${adminRds}_${formattedDate}.${ext1}`;
+          const newName1 = `DFTGCB1_${adminRds}_${formattedDate}.${ext1}`;
           formData.append('supply_dft', new File([supplyFile1], newName1, { type: supplyFile1.type }));
         }
         if (supplyFile2) {
           const ext2 = supplyFile2.name.split('.').pop();
-          const newName2 = `DFT_GCB2_${adminRds}_${formattedDate}.${ext2}`;
+          const newName2 = `DFTGCB2_${adminRds}_${formattedDate}.${ext2}`;
           formData.append('supply', new File([supplyFile2], newName2, { type: supplyFile2.type }));
         }
       }

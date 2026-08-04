@@ -151,8 +151,8 @@ export default function Index({ routeOptiques, filters }) {
                   <th className="px-6 py-3 text-left text-xs font-semibold text-slate-600 uppercase tracking-wider">Admin RDS</th>
                   <th className="px-6 py-3 text-left text-xs font-semibold text-slate-600 uppercase tracking-wider">Admin BCA</th>
                   <th className="px-6 py-3 text-left text-xs font-semibold text-slate-600 uppercase tracking-wider">Type</th>
-                  <th className="px-6 py-3 text-left text-xs font-semibold text-slate-600 uppercase tracking-wider">Fichier ROP</th>
                   <th className="px-6 py-3 text-left text-xs font-semibold text-slate-600 uppercase tracking-wider">Actions</th>
+                  
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-200 bg-white">
@@ -199,7 +199,7 @@ export default function Index({ routeOptiques, filters }) {
                       )}
                     </td>
 
-                    {/* Colonne Actions */}
+                    {/* Colonne Actions
                     <td className="px-6 py-4 text-sm">
                       <Link
                         href="#"
@@ -208,7 +208,7 @@ export default function Index({ routeOptiques, filters }) {
                         <FiEye className="w-4 h-4" />
                         Détail
                       </Link>
-                    </td>
+                    </td>*/}
                   </tr>
                 ))}
                 {routeOptiques.data.length === 0 && (
