@@ -26,6 +26,7 @@ use App\Console\Commands\ImportAnnulations;
 use App\Console\Commands\ImportRouteOptiques;
 use App\Console\Commands\ImportEditplanifdate;
 
+use App\Console\Commands\ImportOTPOSECPECVG;
 
 
 
@@ -313,6 +314,18 @@ if (app()->environment('local', 'staging')) {
         ->daily()
         ->withoutOverlapping();
 }
+
+Schedule::command(ImportOTPOSECPECPECVG::class)
+    ->name('import-otposecpecvg')
+    ->everyFiveMinutes()
+    ->withoutOverlapping(5)
+    ->runInBackground()
+    ->onSuccess(function () {
+        Log::channel('schedule')->info('✅ Import OTPOSECPECVG réussi');
+    })
+    ->onFailure(function () {
+        Log::channel('schedule')->error('❌ Échec import OTPOSECPECVG');
+    });
 
 // ============================================
 // TÂCHES DE PRODUCTION

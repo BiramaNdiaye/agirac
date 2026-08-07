@@ -22,6 +22,7 @@ use App\Http\Controllers\RejeteController;
 use App\Http\Controllers\AnnulationController;
 use App\Http\Controllers\RouteOptiqueController;
 use App\Http\Controllers\EditPlanifDateController;
+use App\Http\Controllers\OTPOSECPECVGController;
 
 use App\Mail\NewImportNotification;
 use Illuminate\Support\Facades\Mail;
@@ -61,7 +62,22 @@ Route::get('/edit-planif-dates', [EditPlanifDateController::class, 'index'])->na
 Route::get('/edit-planif-dates/{editPlanifDate}', [EditPlanifDateController::class, 'show'])->name('edit-planif-dates.show');
 Route::get('/edit-planif-dates/{editPlanifDate}/download', [EditPlanifDateController::class, 'download'])->name('edit-planif-dates.download');
 
+Route::get(
+        '/otposecpecvg',
+        [OTPOSECPECVGController::class, 'index']
+    )->name('otposecpecvg.index');
 
+
+    Route::get(
+        '/otposecpecvg/{id}',
+        [OTPOSECPECVGController::class, 'show']
+    )->name('otposecpecvg.show');
+
+
+    Route::delete(
+        '/otposecpecvg/{id}',
+        [OTPOSECPECVGController::class, 'destroy']
+    )->name('otposecpecvg.destroy');
 
     // Logout
     Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
