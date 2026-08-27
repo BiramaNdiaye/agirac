@@ -36,8 +36,8 @@ export default function Main({ header, children, title }) {
             icon: 'M10.586 13.414a2 2 0 010-2.828l3.172-3.172a2 2 0 112.828 2.828l-1.586 1.586m-5.414 5.414a2 2 0 002.828 0l3.172-3.172a2 2 0 10-2.828-2.828l-1.586 1.586'
         },
 	 {
-            name: 'Fichiers ok/nok',
-            route: 'rejetes.index',
+            name: 'Reponse Covage',
+            route: 'docko.index',
             icon: 'M10.586 13.414a2 2 0 010-2.828l3.172-3.172a2 2 0 112.828 2.828l-1.586 1.586m-5.414 5.414a2 2 0 002.828 0l3.172-3.172a2 2 0 10-2.828-2.828l-1.586 1.586'
         },
  {

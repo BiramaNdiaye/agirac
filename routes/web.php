@@ -23,6 +23,7 @@ use App\Http\Controllers\AnnulationController;
 use App\Http\Controllers\RouteOptiqueController;
 use App\Http\Controllers\EditPlanifDateController;
 use App\Http\Controllers\OTPOSECPECVGController;
+use App\Http\Controllers\DockoController;
 
 use App\Mail\NewImportNotification;
 use Illuminate\Support\Facades\Mail;
@@ -53,6 +54,13 @@ Route::get('/test-mail', function () {
 // ==================== ROUTES PROTÉGÉES ====================
 Route::middleware(['auth', 'verified'])->group(function () {
 Route::resource('route-optiques', RouteOptiqueController::class)->only(['index', 'show']);
+
+Route::prefix('docko')->name('docko.')->group(function () {
+    Route::get('/', [DockoController::class, 'index'])->name('index');
+    Route::get('/{id}', [DockoController::class, 'show'])->name('show');
+    Route::post('/{id}/read', [DockoController::class, 'markAsRead'])->name('mark-read');
+    Route::post('/read-all', [DockoController::class, 'markAllAsRead'])->name('mark-all-read');
+});
 // ou avec un nom plus court
 Route::get('/routeoptiques', [RouteOptiqueController::class, 'index'])->name('routeoptiques.index');
 Route::get('/routeoptiques/{routeOptique}', [RouteOptiqueController::class, 'show'])->name('routeoptiques.show');

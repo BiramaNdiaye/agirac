@@ -25,7 +25,7 @@ use App\Console\Commands\ImportRejetes;
 use App\Console\Commands\ImportAnnulations;
 use App\Console\Commands\ImportRouteOptiques;
 use App\Console\Commands\ImportEditplanifdate;
-
+use App\Console\Commands\ImportDocko;
 use App\Console\Commands\ImportOTPOSECPECVG;
 
 
@@ -37,6 +37,12 @@ Artisan::command('inspire', function () {
 // ============================================
 // IMPORTS DES VISITES TECHNIQUES (OTPLANIFVTDATE)
 // ============================================
+
+Schedule::command(ImportDocko::class)
+    ->name('import-docko')
+    ->everyFiveMinutes()
+    ->withoutOverlapping()
+    ->runInBackground();
 
 Schedule::command(ImportOtplanifvtdate::class)
     ->name('import-otplanifvtdate')

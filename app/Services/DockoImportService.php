@@ -82,27 +82,29 @@ class DockoImportService
         }
     }
 
-    protected function processCsvFile($csvData, $zipData)
-    {
-        $filename = $csvData['file_name'];
-        $prefix = $csvData['prefix'] ?? explode('_', $filename)[0];
+   protected function processCsvFile($csvData, $zipData)
+{
+    $filename = $csvData['file_name'];
+    $prefix = $csvData['prefix'] ?? explode('_', $filename)[0];
 
-        // Ne traiter que les fichiers DOCKO
-        if ($prefix !== 'DOCKO') {
-            return;
-        }
-
-        if (!isset($csvData['sample_rows']) || !is_array($csvData['sample_rows'])) {
-            Log::warning('Aucune ligne dans le CSV DOCKO', ['filename' => $filename]);
-            return;
-        }
-
-        $fileInfo = $this->parseFileInfo($filename);
-
-        foreach ($csvData['sample_rows'] as $rowData) {
-            $this->importRow($rowData, $filename, $fileInfo, $csvData['source'] ?? $zipData['source'] ?? null);
-        }
+    // Ne traiter que les fichiers DOCKO
+    if ($prefix !== 'DOCKO') {
+        return;
     }
+
+    // ✅ Utiliser all_rows au lieu de sample_rows
+    if (!isset($csvData['all_rows']) || !is_array($csvData['all_rows'])) {
+        Log::warning('Aucune ligne dans le CSV DOCKO', ['filename' => $filename]);
+        return;
+    }
+
+    $fileInfo = $this->parseFileInfo($filename);
+
+    // ✅ Itérer sur TOUTES les lignes
+    foreach ($csvData['all_rows'] as $rowData) {
+        $this->importRow($rowData, $filename, $fileInfo, $csvData['source'] ?? $zipData['source'] ?? null);
+    }
+}
 
     protected function importRow($rowData, $sourceFile, $fileInfo, $source)
     {
