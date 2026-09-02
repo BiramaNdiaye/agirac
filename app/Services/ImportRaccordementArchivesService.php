@@ -30,7 +30,7 @@ class ImportRaccordementArchivesService
     
     // Types de fichiers autorisés pour les raccordements
     protected $allowedPrefixes = [
-         'OTPLANIFRACCODATE' => RaccordementAction::ACTION_PLANIFICATION,
+        
         'PLANIFRACCODATE' => RaccordementAction::ACTION_PLANIFICATION,
         'PLANIFRACCODATEKO' => RaccordementAction::ACTION_IMPOSSIBILITE,
         'CRIDOCCLI' => RaccordementAction::ACTION_LIVRAISON_CR,

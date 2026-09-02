@@ -56,20 +56,14 @@ export default function Index({ responses, stats, filters }) {
                     <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
                         <div>
                             <h1 className="text-3xl font-bold text-gray-900 flex items-center gap-3">
-                                <span>📋</span>
-                                Retours DOCKO
+                                
+                                Retours Covage
                             </h1>
                             <p className="text-sm text-gray-500 mt-1">
                                 Suivi des réponses aux contrôles techniques
                             </p>
                         </div>
-                        <button
-                            onClick={() => router.post(route('docko.mark-all-read'))}
-                            className="bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2.5 rounded-lg text-sm font-medium transition duration-200 shadow-sm hover:shadow-md flex items-center gap-2"
-                        >
-                            <span>📬</span>
-                            Tout marquer comme lu
-                        </button>
+                        
                     </div>
 
                     {/* Statistiques - Version améliorée */}
